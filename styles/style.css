@@ -148,7 +148,22 @@ img {
 }
 
 .nav-item {
+  position: relative;
   margin-right: 50px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+
+.nav-link:active {
 }
 
 .nav-item:last-child {
@@ -259,6 +274,62 @@ img {
   padding: 10px 32px;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
+}
+
+.backdrop {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 581px;
+  width: 521px;
+
+  padding: 0;
+  margin: 0;
+  background-color: var(--white-text-color);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+  /* margin-right: 8px;
+  margin-top: 8px; */
+
+  border-radius: 50%;
+  background-color: var(--white-text-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
 }
 
 /* ----------------BENEFITS---------------- */
@@ -280,22 +351,6 @@ img {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-
-/* .benefit-title::before {
-  content: "";
-  display: block;
-  width: 270px;
-  height: 120px;
-  background-color: var(--background-color-lightgrey);
-  border-radius: 4px;
-  margin-bottom: 30px;
-  background-image: url(/images/antenna.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 65 px 70px; 
-   outline: 1px solid black; 
-} 
-*/
 
 .benefit-item {
   max-width: 270px;
@@ -378,9 +433,33 @@ img {
 
 .whatwedo-list {
   margin: 0;
-
   display: flex;
   justify-content: space-between;
+}
+
+.whatwedo-link {
+  position: relative;
+  display: flex;
+}
+
+.wwd-overlay {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  background-color: rgba(47, 48, 58, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-text-color);
 }
 
 /* ----------------TEAM---------------- */
@@ -693,6 +772,7 @@ img {
   color: var(--white-text-color);
   background-color: var(--accent-color);
   box-shadow: #2196f3;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .portfolio-list {

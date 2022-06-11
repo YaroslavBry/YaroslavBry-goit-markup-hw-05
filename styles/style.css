@@ -152,7 +152,7 @@ img {
   margin-right: 50px;
 }
 
-.nav-link::after {
+/* .nav-link::after {
   content: "";
   position: absolute;
   display: block;
@@ -161,10 +161,7 @@ img {
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
-}
-
-.nav-link:active {
-}
+} */
 
 .nav-item:last-child {
   margin-right: 0px;
@@ -228,6 +225,22 @@ img {
   margin-right: 10px;
   fill: currentColor;
   height: 80px;
+}
+
+.nav-link.current {
+  color: var(--accent-color);
+}
+
+.nav-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 /* ---------------Стилизация ГЕРОЯ (БАНЕР)--------------- */
@@ -680,13 +693,6 @@ img {
   /* justify-content: space-between; */
 }
 
-/* .footer-icons .li {
-  background-color: rgba(247, 76, 76, 0.5);
-  height: 44px;
-  width: 44px;
-  border-radius: 50%;
-} */
-
 .footer-links {
   display: flex;
   margin: 0;
@@ -799,6 +805,47 @@ img {
   border: 1px solid #eeeeee;
 }
 
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+/* .portfolio-thumb:hover::before {
+  opacity: 1;
+}
+
+.portfolio-thumb::before {
+  position: absolute;
+  content: "";
+  display: flex;
+  width: 100%;
+  height: 294px;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+} */
+
+.portfolio-list .portfolio-link:hover .portfolio-overlay,
+.portfolio-list .portfolio-link:focus .portfolio-overlay {
+  transform: translateY(0);
+}
+
+.picture-description {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  height: 100%;
+  width: 100%;
+}
+
+.portfolio-picture .p {
+  display: block;
+  min-width: 100%;
+  height: auto;
+}
+
 .portfolio-item:nth-child(3n) {
   margin-right: 0;
 }
@@ -814,10 +861,30 @@ img {
 }
 
 .portfolio-description {
-  font-family: Roboto, sans-serif;
   color: var(--secondary-text-color);
-  font-weight: 400;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-link {
+  display: inline-block;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: var(--accent-color);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
